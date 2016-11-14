@@ -76,8 +76,8 @@ var CartStore = _.extend({}, EventEmitter.prototype, {
 // Register callback with AppDispatcher
 AppDispatcher.register(function(payload) {
     var action = payload.action;
-    console.log('AppDispatcher Action type: ' + action);
-    console.log('AppDispatcher pay load : ' + payload);
+    console.log('Register Execution Cart Store : ' + JSON.stringify(payload));
+    console.log('AppDispatcher Action type: ' + JSON.stringify(action));
     switch(action.actionType) {
 
         // Respond to CART_ADD action

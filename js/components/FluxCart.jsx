@@ -1,29 +1,28 @@
 import React from 'react';
 import FluxCartActions from '../actions/FluxCartActions';
 
+class FluxCart extends React.Component {
+    constructor () {
+        super();
+        this.removeFromCart = this.removeFromCart.bind(this);
+    }
 
-// Flux cart view
-
-const FluxCart = React.createClass({
-
-    // Hide cart via Actions
-    closeCart: () => {
-        FluxCartActions.updateCartVisible(false);
-    },
-
-    // Show cart via Actions
-    openCart: () => {
-        FluxCartActions.updateCartVisible(true);
-    },
-
-    // Remove item from Cart via Actions
-    removeFromCart: (sku) => {
+    removeFromCart(sku) {
         FluxCartActions.removeFromCart(sku);
-        //FluxCartActions.updateCartVisible(false);
-    },
+        if (Object.keys(this.props.products).length == 0) {
+            FluxCartActions.updateCartVisible(false);
+        }
+    }
 
-    // Render cart view
-    render: function() {
+    openCart() {
+        FluxCartActions.updateCartVisible(true);
+    }
+
+    closeCart() {
+        FluxCartActions.updateCartVisible(false);
+    }
+
+    render() {
         var self = this, products = this.props.products;
         return (
             <div className={"flux-cart " + (this.props.visible ? 'active' : '')}>
@@ -46,8 +45,7 @@ const FluxCart = React.createClass({
                 <button type="button" className="view-cart" onClick={this.openCart} disabled={Object.keys(this.props.products).length > 0 ? "" : "disabled"}>View Cart ({this.props.count})</button>
             </div>
         );
-    },
+    }
+}
 
-});
-
-module.exports = FluxCart;
+export default FluxCart;

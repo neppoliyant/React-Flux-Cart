@@ -52,6 +52,8 @@ var ProductStore = _.extend({}, EventEmitter.prototype, {
 AppDispatcher.register(function(payload) {
     var action = payload.action;
 
+    console.log('Register Execution from Product Store: ' + JSON.stringify(payload));
+
     switch(action.actionType) {
 
         // Respond to RECEIVE_DATA action

@@ -4,14 +4,14 @@ import FluxCartActions from '../actions/FluxCartActions';
 const FluxProduct = React.createClass ({
 
     addToCart: function(event) {
-    var sku = this.props.selected.sku;
-    var update = {
-        name: this.props.product.name,
-        type: this.props.selected.type,
-        price: this.props.selected.price
-    }
-    FluxCartActions.addToCart(sku, update);
-    FluxCartActions.updateCartVisible(true);
+        var sku = this.props.selected.sku;
+        var update = {
+            name: this.props.product.name,
+            type: this.props.selected.type,
+            price: this.props.selected.price
+        };
+        FluxCartActions.addToCart(sku, update);
+        FluxCartActions.updateCartVisible(true);
     },
     // Select product variation via Actions
     selectVariant: function(event){

@@ -2,6 +2,7 @@ import React from 'react';
 import CartStore from '../stores/CartStore';
 import ProductStore from '../stores/ProductStore';
 import FluxProduct from './FluxProduct.react';
+import FluxCart1 from './FluxCart.jsx';
 import FluxCart from './FluxCart.react';
 
 
@@ -41,7 +42,7 @@ const FluxCartApp = React.createClass({
     render: function() {
         return (
             <div className="flux-cart-app">
-            <FluxCart products={this.state.cartItems} count={this.state.cartCount} total={this.state.cartTotal} visible={this.state.cartVisible} />
+            <FluxCart1 products={this.state.cartItems} count={this.state.cartCount} total={this.state.cartTotal} visible={this.state.cartVisible} />
                 <FluxProduct product={this.state.product} cartitems={this.state.cartItems} selected={this.state.selectedProduct} />
         </div>
         );
